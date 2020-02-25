@@ -9,6 +9,20 @@ __version__: '1.0.0'
 __author__: 'Jan Rodolf Espinas'
 
 def InsertionSort(A):
+    """
+        Takes an (un)sorted `list` and returns the list after 
+        using Insertion Sort.
+
+        Parameters
+        ----------
+        A: list
+            list of (un)sorted numbers
+        
+        Returns
+        -------
+        A: list
+            sorted list
+    """
     print(A)
     # [j = 5, key(1) = 2, 4, 6, 1, 3]
 
