@@ -8,7 +8,7 @@ from __future__ import print_function
 __version__: '1.0.0'
 __author__: 'Jan Rodolf Espinas'
 
-def InsertionSort(A):
+def insertion_sort(A):
     """
         Takes an (un)sorted `list` and returns the list after 
         using Insertion Sort.
