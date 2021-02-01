@@ -4,7 +4,7 @@ This repository covers a wide range of algorithms starting from the basics to th
 
 ## License
 ```
-Copyright 2020 Jan Rodolf Espinas
+Copyright 2021 Jan Rodolf Espinas
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
