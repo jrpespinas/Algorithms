@@ -10,9 +10,11 @@ int main(){
 }
 
 void InputSample1(){
-    // ask the user for input using `cin`
+    // Ask the user for input using `cin`
+    // Inputs are separated by new line.
     int a, b;
     string x;
 
+    cout << "Input two integers and a string using `cin`: ";
     cin >> a >> b >> x;
 }
