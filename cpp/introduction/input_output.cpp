@@ -5,11 +5,13 @@ using namespace std;
 void InputSample1();
 void InputSample2();
 void InputSample3();
+void InputSample4();
 
 int main(){
     InputSample1();
     InputSample2();
     InputSample3();
+    InputSample4();
     return 0;
 }
 
@@ -40,4 +42,14 @@ void InputSample3(){
     cout << "Input a sentence using `getline`: "; 
     cin.ignore();
     getline(cin, x);
+}
+
+void InputSample4(){
+    // Ask for multiple inputs 
+    int x;
+
+    cout << "Input multiple integers: "
+    while (cin >> x){
+        cout << "Another input: ";
+    }
 }
