@@ -1,3 +1,12 @@
+/*
+ * File: input_output.cpp
+ * Author: Jan Rodolf P. Espinas
+ * 
+ * File created at February 1, 2021
+ *
+ * program that uses different ways to ask for inputs
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 
