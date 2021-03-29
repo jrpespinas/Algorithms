@@ -2,7 +2,9 @@
 
 const char* capslock(char str[]);
 const char* capitalize(char str[]);
+const char* toLower(char str[]);
 int string_length(char str[]);
+
 
 int main(){
     char str[1000];
@@ -10,6 +12,7 @@ int main(){
     scanf("%[^\n]s", str); 
     int length = string_length(str);
     printf("%s\n", capslock(str));
+    printf("%s\n", toLower(str));
     printf("%s\n", capitalize(str));
 }
 
@@ -49,4 +52,14 @@ int string_length(char str[]){
         length++;
     }
     return length;
+}
+
+const char* toLower(char str[]){
+    int i = 0;
+    while (str[i] != '\0'){
+        if (str[i] >= 'A' && str[i] <= 'Z')
+            str[i] += ('a' - 'A');
+        i++;
+    }
+    return str;
 }
