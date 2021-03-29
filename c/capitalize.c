@@ -23,6 +23,7 @@ const char* capslock(char str[]){
 }
 
 const char* capitalize(char str[]){
+    // capitalize the first letter per word
     for (int i = 0; str[i] != '\0'; i++){
         if (i == 0){
             if (str[i] >= 'a' && str[i] <= 'z')
