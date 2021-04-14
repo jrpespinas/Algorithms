@@ -17,7 +17,7 @@ int main(){
     }
 
 const char* capslock(char str[]){
-    // capitalize all letters of the string
+    // convert the string to uppercase  
     for (int i = 0; str[i] != '\0'; i++){
         if (isLower(str[i]))
             str[i] -= ('a' - 'A');
@@ -46,6 +46,7 @@ const char* capitalize(char str[]){
 }
 
 const char* toLower(char str[]){
+    // convert the string to lowercase
     int i = 0;
     while (str[i] != '\0'){
         if (isUpper(str[i]))
@@ -66,9 +67,11 @@ int string_length(char str[]){
 
 
 int isLower(char letter){
+    // check if the char is in lowercse
     return (letter >= 'a' && letter <= 'z');
 }
 
 int isUpper(char letter){
+    // check if the char is in uppercase
     return (letter >= 'A' && letter <= 'Z');
 }
