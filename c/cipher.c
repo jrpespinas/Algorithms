@@ -7,13 +7,15 @@ int main(){
     char str[1000];
     printf("Enter a string: ");
     scanf("%[^\n]s", str);
-    printf("%s\n", decrypt(encrypt(str)));
+    printf("%s\n", encrypt(str));
     return 0;
 }
 
 char* encrypt(char str[]){
+    int num;
     for(int i = 0; str[i] != '\0'; i++){
-        str[i] += 1; 
+        str[i] = (int) str[i] + 1; 
+        printf("%i", str[i]);
     }
     return str;
 }
