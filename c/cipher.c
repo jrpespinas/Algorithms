@@ -1,28 +1,26 @@
 #include <stdio.h>
 
-char* encrypt(char str[]);
-char* decrypt(char str[]);
+char* encrypt(char* str, int* num);
+void printEncryption(int* str);
 
 int main(){
     char str[1000];
+    int num[1000];
     printf("Enter a string: ");
     scanf("%[^\n]s", str);
-    printf("%s\n", encrypt(str));
+    encrypt(str, num);
+    printEncryption(num);
     return 0;
 }
 
-char* encrypt(char str[]){
-    int num;
+char* encrypt(char* str, int* num){
     for(int i = 0; str[i] != '\0'; i++){
-        str[i] = (int) str[i] + 1; 
-        printf("%i", str[i]);
+        num[i] = (int) str[i] + 1; 
     }
-    return str;
 }
 
-char* decrypt(char str[]){
-    for(int i = 0; str[i] != '\0'; i++){
-        str[i] -= 1;
-    }
-    return str;
+
+void printEncryption(int* str){
+    for(int i = 0; str[i] != '\0'; i++)
+        printf("%d ", str[i]);
 }
