@@ -7,15 +7,6 @@ int string_length(char str[]);
 int isLower(char letter);
 int isUpper(char letter);
 
-int main(){
-    char str[1000];
-    printf("please enter a string: ");
-    scanf("%[^\n]s", str); 
-    printf("%s\n", capitalize(str));
-    printf("%s\n", capslock(str));
-    printf("%s\n", toLower(str));
-    }
-
 const char* capslock(char str[]){
     // convert the string to uppercase  
     for (int i = 0; str[i] != '\0'; i++){
