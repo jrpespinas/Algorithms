@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "capitalize.c"
+#include "capitalize.h"
 
 int main(int argc, char* argv[]) {
     if (argc >= 2)
