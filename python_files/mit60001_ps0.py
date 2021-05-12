@@ -15,15 +15,11 @@ def raised_to_y(x: int, y: int):
     return x ** y
 
 
-def log_base_2(x: int):
-    return np.log2(x)
-
-
 def main():
     x = int(input("X: "))
     y = int(input("y: "))
     print(raised_to_y(x, y))
-    print(log_base_2(x))
+    print(np.log2(x))
 
 
 if __name__ == "__main__":
