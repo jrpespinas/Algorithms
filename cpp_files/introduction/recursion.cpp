@@ -18,7 +18,7 @@ string reverseSubstringLoop(string word, int start, int end){
     int length = word.length();
     
     for (int i = 0; i < length; i++) {
-        if (i >= start && i <= end) {
+        if (i >= start - 1 && i <= end - 1) {
             swap(word[i], word[end]);
             end = end - 1;
         }
@@ -29,12 +29,12 @@ string reverseSubstringLoop(string word, int start, int end){
 
 void reverseSubstringRecursion(string &word, int start, int end, int i) {
     int length = word.length();
-    
+
     if (i == length){
         return;
     }
     else {
-        if (i >= start && i <= end) {
+        if (i >= start - 1 && i <= end - 1) {
             swap(word[i], word[end]);
             reverseSubstringRecursion(word, start, end - 1, i + 1);
         }
