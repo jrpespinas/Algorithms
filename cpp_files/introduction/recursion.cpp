@@ -3,12 +3,14 @@
 using namespace std;
 
 string reverseSubstringLoop(string word, int start, int end);
+void reverseSubstringRecursion(string &word, int start, int end, int i = 0);
 
 int main(){
     string word;
     int start, end;
     cin >> word >> start >> end;
-    cout << reverseSubstringLoop(word, start, end);
+    reverseSubstringRecursion(word, start, end);
+    cout << word;
     return 0;
 }
 
@@ -23,4 +25,21 @@ string reverseSubstringLoop(string word, int start, int end){
     }
 
     return word;
+}
+
+void reverseSubstringRecursion(string &word, int start, int end, int i) {
+    int length = word.length();
+    
+    if (i == length){
+        return;
+    }
+    else {
+        if (i >= start && i <= end) {
+            swap(word[i], word[end]);
+            reverseSubstringRecursion(word, start, end - 1, i + 1);
+        }
+        else {
+            reverseSubstringRecursion(word, start, end, i + 1);
+        }
+    }
 }
