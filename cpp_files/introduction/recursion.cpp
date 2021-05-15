@@ -1,15 +1,18 @@
 #include <iostream>
 #include <algorithm>
+#include <stdlib.h>
 using namespace std;
 
 string reverseSubstringLoop(string word, int start, int end);
 void reverseSubstringRecursion(string &word, int start, int end, int i = 0);
+int checkConstraint(int length, int start, int end);
 
 int main(){
     string word;
     int start, end;
     cin >> word >> start >> end;
-    reverseSubstringRecursion(word, start, end);
+
+    reverseSubstringRecursion(word, start - 1, end - 1);
     cout << word;
     return 0;
 }
@@ -30,11 +33,16 @@ string reverseSubstringLoop(string word, int start, int end){
 void reverseSubstringRecursion(string &word, int start, int end, int i) {
     int length = word.length();
 
+    
+    if (checkConstraint(length, start, end) == 0) {
+        return;
+    }
+
     if (i == length){
         return;
     }
     else {
-        if (i >= start - 1 && i <= end - 1) {
+        if (i >= start && i <= end ) {
             swap(word[i], word[end]);
             reverseSubstringRecursion(word, start, end - 1, i + 1);
         }
@@ -42,4 +50,20 @@ void reverseSubstringRecursion(string &word, int start, int end, int i) {
             reverseSubstringRecursion(word, start, end, i + 1);
         }
     }
+}
+
+int checkConstraint(int length, int start, int end) {
+    if (length > 100 || length < 1){ 
+        cout << "String exceeds specified length, ergo no changes!";
+        return 0;
+    }
+    if (start >= end || start < 0) {
+        cout << "Starting value falls outside of range!";
+        return 0;
+    }
+    if (end <= start || end >= length) {
+        cout << "Ending value falls outside of range!";
+        return 0;
+    }
+    return 1;       
 }
