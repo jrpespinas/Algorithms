@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <stdlib.h>
 using namespace std;
 
 string reverseSubstringLoop(string word, int start, int end);
