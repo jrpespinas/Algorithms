@@ -46,9 +46,15 @@ Test Case 2
 >>> Number of months: 105
 """
 
+PORTION_DOWN_PAYMENT = 0.25
+
 
 def main():
-    pass
+    annual_salary = float(input("Enter your annual salary: "))
+    portion_saved = float(
+        input("Enter the percent oif your salary to save, as a decimal: ")
+    )
+    total_cost = float(input("Enter the cost of your dream home: "))
 
 
 if __name__ == "__main__":
