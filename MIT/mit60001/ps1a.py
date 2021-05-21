@@ -49,12 +49,27 @@ Test Case 2
 PORTION_DOWN_PAYMENT = 0.25
 
 
+def number_of_months_to_save(
+    annual_salary: float, portion_saved: float, total_cost: float
+):
+    pass
+
+
+def get_down_payment(total_cost: float):
+    return total_cost * PORTION_DOWN_PAYMENT
+
+
 def main():
     annual_salary = float(input("Enter your annual salary: "))
     portion_saved = float(
         input("Enter the percent oif your salary to save, as a decimal: ")
     )
     total_cost = float(input("Enter the cost of your dream home: "))
+    number_of_months = number_of_months_to_save(
+        annual_salary, portion_saved, total_cost
+    )
+
+    print("Number of months:", number_of_months)
 
 
 if __name__ == "__main__":
