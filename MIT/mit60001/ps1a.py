@@ -47,12 +47,20 @@ Test Case 2
 """
 
 PORTION_DOWN_PAYMENT = 0.25
+PORTION_SAVED = 0.1
 
 
 def number_of_months_to_save(
     annual_salary: float, portion_saved: float, total_cost: float
-):
-    pass
+) -> int:
+    portion_down_payment = get_down_payment(total_cost)
+    portion_saved = get_portion_saved(annual_salary)
+
+    return number_of_months
+
+
+def get_portion_saved(annual_salary: float) -> float:
+    return get_monthly_salary(annual_salary) * PORTION_SAVED
 
 
 def get_down_payment(total_cost: float) -> float:
