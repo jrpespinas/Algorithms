@@ -55,11 +55,11 @@ def number_of_months_to_save(
     pass
 
 
-def get_down_payment(total_cost: float):
+def get_down_payment(total_cost: float) -> float:
     return total_cost * PORTION_DOWN_PAYMENT
 
 
-def get_monthly_salary(annual_salary: float):
+def get_monthly_salary(annual_salary: float) -> float:
     return annual_salary / 12
 
 
