@@ -59,6 +59,10 @@ def get_down_payment(total_cost: float):
     return total_cost * PORTION_DOWN_PAYMENT
 
 
+def get_monthly_salary(annual_salary: float):
+    return annual_salary / 12
+
+
 def main():
     annual_salary = float(input("Enter your annual salary: "))
     portion_saved = float(
