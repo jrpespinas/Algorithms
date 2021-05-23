@@ -5,7 +5,7 @@ using namespace std;
 #define MAX 100000
 #define MIN -100000
 
-void input_set(int array[], int n);
+int input_set(int array[], int n);
 int get_maximum_product(int array[], int n);
 
 int main() {
@@ -19,24 +19,28 @@ int main() {
 
     int array[n];
 
-    input_set(array, n);
+    if (input_set(array, n) == 0) {
+        return 0;
+    }
+
     cout << get_maximum_product(array, n);
 
     return 0;
 }
 
-void input_set(int array[], int n) {
+int input_set(int array[], int n) {
     int num;
     for (int i = 0; i < n; i++) {
         cin >> num;
 
         if (num >= MAX or num <= MIN) {
             cout << "ERROR: input value exceeds range!";
-            break;
+            return 0;
         } else {
             array[i] = num;
         }
     }
+    return 1;
 }
 
 int get_maximum_product(int array[], int n) {
