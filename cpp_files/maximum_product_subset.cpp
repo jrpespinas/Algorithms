@@ -12,6 +12,7 @@ int main() {
     int n;
     cin >> n;
 
+    // Exits the program if the input size exceeds `MAX`
     if (n > MAX) {
         cout << "ERROR: Array size is too big!";
         return 0;
@@ -19,10 +20,12 @@ int main() {
 
     int array[n];
 
+    // Exits the program if input value(s) exceed `MAX` and `MIN`
     if (input_set(array, n) == 0) {
         return 0;
     }
 
+    // Return and output the maximum product from a pair of values in the array
     cout << get_maximum_product(array, n);
 
     return 0;
@@ -30,9 +33,13 @@ int main() {
 
 int input_set(int array[], int n) {
     int num;
+    
+    // Store input values into array
     for (int i = 0; i < n; i++) {
         cin >> num;
 
+        // Returns 0 if input value exceeds `MAX` and `MIN`
+        // otherwise store input to array[i]
         if (num >= MAX or num <= MIN) {
             cout << "ERROR: input value exceeds range!";
             return 0;
@@ -44,6 +51,9 @@ int input_set(int array[], int n) {
 }
 
 int get_maximum_product(int array[], int n) {
+    // Sort the array in ascending order
     sort(array, array+n);
+
+    // Return the product of the last two indices `array`
     return array[n-1] * array[n-2];
 } 
