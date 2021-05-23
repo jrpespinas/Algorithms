@@ -12,9 +12,9 @@ int main() {
     int n;
     cin >> n;
 
-    // Exits the program if the input size exceeds `MAX`
-    if (n > MAX) {
-        cout << "ERROR: Array size is too big!";
+    // Exits the program if the input size exceeds `MAX` or input size is less than 2
+    if (n > MAX or n < 2) {
+        cout << "ERROR: Array size is not acceptable!";
         return 0;
     }
 
