@@ -70,20 +70,28 @@ def bisection_search(annual_salary: float) -> float:
 
     left = 0
     right = 1
-    portion_saved = 9
+    savings_rate = right
     portion_down_payment = get_portion_down_payment(TOTAL_COST)
-    current_savings = savings(annual_salary, portion_saved)
+    current_savings = savings(annual_salary, savings_rate)
 
     bisection_step = 0
-    while abs(current_savings - portion_down_payment) >= 50:
-        savings_rate = (left + right) / 2
-        current_savings = savings(annual_salary, savings_rate)
-        if current_savings > portion_down_payment:
-            right = savings_rate
-        else:
+    temp = 0
+    while abs(portion_down_payment - current_savings) >= 100:
+        if portion_down_payment > current_savings:
             left = savings_rate
+        else:
+            right = savings_rate
 
         bisection_step += 1
+
+        savings_rate = (left + right) / 2
+        current_savings = savings(annual_salary, savings_rate)
+
+        if savings_rate == temp:
+            print("It is not possible to pay the down payment in three years.")
+            return 0.0, 0.0
+
+        temp = savings_rate
         print(savings_rate)
 
     return savings_rate, bisection_step
