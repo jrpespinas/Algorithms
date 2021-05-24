@@ -97,7 +97,7 @@ def bisection_search(annual_salary: float) -> float:
     return savings_rate, bisection_step
 
 
-def savings(annual_salary: float, portion_saved: float) -> int:
+def savings(annual_salary: float, portion_saved: float) -> float:
 
     current_savings = 0
     portion_down_payment = get_portion_down_payment(TOTAL_COST)
