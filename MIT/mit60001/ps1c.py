@@ -59,43 +59,53 @@ Test Case 3
 >>> Enter the starting salary: 10000
 >>> It is not possible to pay the down payment in three years
 """
-
 SEMI_ANNUAL_RAISE = 0.07
-INVESTMENTS_RETURN = 0.04
 PORTION_DOWN_PAYMENT = 0.25
 TOTAL_COST = 1e6
 TARGET_MONTH = 36
+ANNUAL_SAVINGS_RATE = 0.04
 
 
-def bisection_search():
-    pass
+def bisection_search(annual_salary: float) -> float:
+
+    left = 0
+    right = 1
+    portion_saved = 9
+    portion_down_payment = get_portion_down_payment(TOTAL_COST)
+    current_savings = savings(annual_salary, portion_saved)
+
+    bisection_step = 0
+    while abs(current_savings - portion_down_payment) >= 50:
+        savings_rate = (left + right) / 2
+        current_savings = savings(annual_salary, savings_rate)
+        if current_savings > portion_down_payment:
+            right = savings_rate
+        else:
+            left = savings_rate
+
+        bisection_step += 1
+        print(savings_rate)
+
+    return savings_rate, bisection_step
 
 
-def number_of_months_to_save(
-    annual_salary: float,
-    portion_saved: float,
-    total_cost: float,
-    semi_annual_raise: float,
-) -> int:
+def savings(annual_salary: float, portion_saved: float) -> int:
 
     current_savings = 0
-    portion_down_payment = get_portion_down_payment(total_cost)
+    portion_down_payment = get_portion_down_payment(TOTAL_COST)
     monthly_salary = get_monthly_salary(annual_salary)
 
-    months = 0
-    while current_savings <= portion_down_payment:
+    for months in range(0, TARGET_MONTH):
         current_savings = (
             current_savings
             + get_savings_portion(monthly_salary, portion_saved)
             + get_investments_return(current_savings)
         )
 
-        months += 1
-
         if months % 6 == 0:
-            monthly_salary = get_salary_raise(monthly_salary, semi_annual_raise)
+            monthly_salary = get_salary_raise(monthly_salary, SEMI_ANNUAL_RAISE)
 
-    return months
+    return current_savings
 
 
 def get_salary_raise(monthly_salary: float, semi_annual_raise: float) -> float:
@@ -120,6 +130,10 @@ def get_investments_return(current_savings: float) -> float:
 
 def main():
     starting_salary = float(input("Enter the starting salary: "))
+    savings_rate, bisection_step = bisection_search(starting_salary)
+    print(
+        f"Savings: {savings(starting_salary, savings_rate)}, bisection steps: {bisection_step}"
+    )
 
 
 if __name__ == "__main__":
