@@ -69,8 +69,11 @@ ANNUAL_SAVINGS_RATE = 0.04
 def bisection_search(annual_salary: float) -> float:
 
     left = 0
-    right = 1
-    savings_rate = right
+    right = 10000
+
+    midpoint = int((left + right) / 2)
+    savings_rate = midpoint / 10000
+
     portion_down_payment = get_portion_down_payment(TOTAL_COST)
     current_savings = savings(annual_salary, savings_rate)
 
@@ -78,13 +81,15 @@ def bisection_search(annual_salary: float) -> float:
     temp = 0
     while abs(portion_down_payment - current_savings) >= 100:
         if portion_down_payment > current_savings:
-            left = savings_rate
+            left = midpoint
         else:
-            right = savings_rate
+            right = midpoint
 
         bisection_step += 1
 
-        savings_rate = (left + right) / 2
+        midpoint = int((left + right) / 2)
+        savings_rate = midpoint / 10000
+
         current_savings = savings(annual_salary, savings_rate)
 
         if savings_rate == temp:
@@ -104,14 +109,14 @@ def savings(annual_salary: float, portion_saved: float) -> float:
     monthly_salary = get_monthly_salary(annual_salary)
 
     for months in range(0, TARGET_MONTH):
+        if months % 6 == 0 and months > 0:
+            monthly_salary = get_salary_raise(monthly_salary, SEMI_ANNUAL_RAISE)
+
         current_savings = (
             current_savings
             + get_savings_portion(monthly_salary, portion_saved)
             + get_investments_return(current_savings)
         )
-
-        if months % 6 == 0:
-            monthly_salary = get_salary_raise(monthly_salary, SEMI_ANNUAL_RAISE)
 
     return current_savings
 
