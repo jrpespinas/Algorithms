@@ -31,8 +31,8 @@ def test_problem_set_1b(
 @pytest.mark.parametrize(
     "starting_salary, savings_rate, bisection_steps",
     [
-        (150000, 0.4411, 12),
-        (300000, 0.2206, 13),
+        (150000, 0.4411, 11),
+        (300000, 0.2206, 8),
         (10000, 0.0, 0.0),
     ],
 )
