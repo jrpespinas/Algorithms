@@ -42,14 +42,16 @@ class List {
 			}
 			cout << tmp->data << "\n";
 		}
+		int getHead() {
+			return head->data;
+		}
 };
 
 int main() {
 	List test;
 	test.append(1);
-	test.append(2);	
-	test.display();
+	test.append(2);
 	test.prepend(0);
-	test.display();
+	cout << test.getHead();
 	return 0;
 }
