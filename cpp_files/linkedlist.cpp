@@ -42,6 +42,9 @@ class List {
 			}
 			cout << temp->data << "\n";
 		}
+		int getHead() {
+			return head->data;
+		}
 };
 
 int main() {
@@ -52,5 +55,6 @@ int main() {
 	test.append(2);
 	test.prepend(0);
 	test.display();
+	cout << test.getHead();
 	return 0;
 }
