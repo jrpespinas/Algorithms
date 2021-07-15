@@ -71,15 +71,27 @@ class List{
 				ptr = ptr->next;
 			}
 		}
+		void reverse() {	
+			if (head == nullptr) return;
+			Node *current = head;
+			Node *nxt = nullptr;
+			Node *prev = nullptr;
+			while(current != nullptr) {
+				nxt = current->next;
+				current->next = prev;	
+				prev = current;
+				current = nxt;
+			}
+			head = prev;
+		}
 };
 int main() {
 	List nums;
 	nums.append(1);
 	nums.append(2);
-	nums.prepend(0);
+	nums.prepend(0);	
 	nums.display();
-	nums.deleteValue(1);
-	nums.pop();
+	nums.reverse();
 	nums.display();
 	return 0;
 }
