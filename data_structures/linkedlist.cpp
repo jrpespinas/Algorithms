@@ -5,13 +5,13 @@ class Node {
 	public:
 		int data;
 		Node *next;
-		Node(int data){
+		Node(int data) {
 			this->data = data;
 			this->next = nullptr;
 		}
 };
 
-class List {
+class List{
 	Node *head;
 	public:
 		List() {
@@ -23,15 +23,15 @@ class List {
 			head = node;
 		}
 		void append(int data) {
-			if (head==nullptr) {
-				this->prepend(data);
+			if (head == nullptr) {
+				prepend(data);
 				return;
 			}
 			Node *ptr = head;
-			Node *node = new Node(data);
 			while(ptr->next != nullptr) {
 				ptr = ptr->next;
 			}
+			Node *node = new Node(data);
 			ptr->next = node;
 		}
 		void display() {
@@ -40,38 +40,46 @@ class List {
 				cout << ptr->data << " ";
 				ptr = ptr->next;
 			}
-			cout << ptr->data << "\n";
+			cout  << ptr->data << "\n";
 		}
-		int getHead() {
-			return head->data;
-		}
-		void deleteHead() {
-			head = head->next; 
+		void popFirst(int data) {
+			head = head->next;
 			return;
 		}
-		void deleteValue(int val) {
+		void deleteValue(int data) {
 			if (head == nullptr) return;
-			if (head->data == val) this->deleteHead();	
+			if (head->data == data) {
+				popFirst(data);
+				return;
+			}
 			Node *ptr = head;
 			while(ptr->next != nullptr) {
-				if (ptr->next->data == val) {
+				if (ptr->next->data == data) {
 					ptr->next = ptr->next->next;
 					return;
 				}
 				ptr = ptr->next;
 			}
 		}
+		void pop() {
+			Node *ptr = head;
+			while(ptr->next != nullptr) {
+				if (ptr->next->next == nullptr) {
+					ptr->next = nullptr;
+					return;
+				}
+				ptr = ptr->next;
+			}
+		}
 };
-
 int main() {
 	List nums;
 	nums.append(1);
 	nums.append(2);
-	nums.display();
 	nums.prepend(0);
-	nums.prepend(-1);
-	nums.deleteValue(-1);
 	nums.display();
-	cout << nums.getHead();
+	nums.deleteValue(1);
+	nums.pop();
+	nums.display();
 	return 0;
 }
