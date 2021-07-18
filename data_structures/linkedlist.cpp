@@ -51,8 +51,8 @@ class List {
 				this->deleteHead();
 				return;
 			}
-			Node *ptr = head;
-			while(ptr->next != nullptr) {
+			Node *ptr = head; 
+			while (ptr->next != nullptr) {
 				if (ptr->next->data == data) {
 					ptr->next = ptr->next->next;
 					return;
@@ -62,7 +62,7 @@ class List {
 		}
 		void pop() {
 			Node *ptr = head;
-			while(ptr->next->next != nullptr) {
+			while (ptr->next->next != nullptr) {
 				ptr = ptr->next;
 			}
 			ptr->next = nullptr;
@@ -77,7 +77,6 @@ class List {
 			}
 			head = prev;
 		}
-
 };
 int main() {
 	List nums;
