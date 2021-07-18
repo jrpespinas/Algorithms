@@ -1,7 +1,7 @@
 Data Structures & Algorithms
 ===
 ## Overview
-This repository covers a wide range of algorithms starting from the basics to the advanced. This repository will also tackle the basic to advanced data structures. It will be implemented using any programming languages such as Python, C/C++, and/or Java.
+This repository covers a wide range of algorithms starting from the basics to the advanced. This repository will also tackle the basic to advanced data structures. It will be implemented using C++.
 
 ## License
 ```
