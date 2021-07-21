@@ -13,13 +13,16 @@ void insertion_sort(int *arr, int size) {
     }
 }
 
+void display(int *arr, int size) {
+	for(int i=0; i<size; i++) {
+		cout << arr[i] << " ";
+	}
+}
 
 int main() {
 	int arr[] = {3, 7, 12, 2, 13, 18, 24, 3, 8};	
 	int size = sizeof(arr) / sizeof(int);
 	insertion_sort(arr, size);
-	for(int i=0; i<size; i++) {
-		cout << arr[i] << " ";
-	}
+	display(arr, size);
 	return 0;
 }
