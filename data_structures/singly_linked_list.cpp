@@ -13,7 +13,7 @@ class Node {
 
 class List {
 	Node *head;
-	public:
+	public: 
 		List() {
 			head = nullptr;
 		}
@@ -51,7 +51,7 @@ class List {
 				this->deleteHead();
 				return;
 			}
-			Node *ptr = head; 
+			Node *ptr = head;
 			while (ptr->next != nullptr) {
 				if (ptr->next->data == data) {
 					ptr->next = ptr->next->next;
@@ -62,14 +62,13 @@ class List {
 		}
 		void pop() {
 			Node *ptr = head;
-			while (ptr->next->next != nullptr) {
+			while (ptr->next->next != nullptr) 
 				ptr = ptr->next;
-			}
 			ptr->next = nullptr;
 		}
 		void reverse() {
 			Node *prev = nullptr, *current = head, *next = nullptr;
-			while (current != nullptr) {
+			while(current != nullptr) {
 				next = current->next;
 				current->next = prev;
 				prev = current;
@@ -78,6 +77,7 @@ class List {
 			head = prev;
 		}
 };
+
 int main() {
 	List nums;
 	nums.append(1);
