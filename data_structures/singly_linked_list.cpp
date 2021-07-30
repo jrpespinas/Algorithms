@@ -13,14 +13,15 @@ class Node {
 
 class List {
 	Node *head;
-	public: 
-		List() {
+	public:
+		List (){
 			head = nullptr;
 		}
 		void prepend(int data) {
 			Node *node = new Node(data);
 			node->next = head;
 			head = node;
+			return;
 		}
 		void append(int data) {
 			if (head == nullptr) {
@@ -63,7 +64,7 @@ class List {
 		void pop() {
 			Node *ptr = head;
 			while (ptr->next->next != nullptr) 
-				ptr = ptr->next;
+				ptr = ptr->next;	
 			ptr->next = nullptr;
 		}
 		void reverse() {
