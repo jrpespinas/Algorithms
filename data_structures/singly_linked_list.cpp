@@ -64,16 +64,26 @@ class List {
             }
             return;
         }
+        void pop() {
+            Node *ptr = this->head;
+            while(ptr->next->next != nullptr) {
+                ptr = ptr->next;
+            }
+            ptr->next = nullptr;
+            return;
+        }
 };
 
 int main() {
     List nums;
     nums.append(1);
     nums.append(2);
+    nums.append(3);
     nums.deleteVal(1);
     /* nums.pop(); */
-    /* nums.prepend(0); */
+    nums.prepend(0);
     /* nums.reverse(); */
     nums.popHead();
+    nums.pop();
     nums.display();
 }
