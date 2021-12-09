@@ -27,6 +27,14 @@ class List {
             if (this->head == nullptr) {
                 this->prepend(data);
                 return;
+            } else {
+                Node *ptr = head;
+                while(ptr->next != nullptr) {
+                    ptr = ptr->next;
+                }
+                Node *node = new Node(data);
+                ptr->next = node;
+                return;
             }
         }
 
