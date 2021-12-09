@@ -11,6 +11,27 @@ class Node{
         }
 }
 
+class List {
+    Node *head;
+    public:
+        List() {
+            this->head = nullptr;
+        }
+        void prepend(data) {
+            Node *node = new Node(data);
+            node->next = head;
+            head = node;
+            return;
+        }
+        void append(data) {
+            if (this->head == nullptr) {
+                this->prepend(data);
+                return;
+            }
+        }
+
+}
+
 int main() {
     List nums;
     nums.append(1);
