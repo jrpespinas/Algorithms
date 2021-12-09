@@ -5,11 +5,11 @@ class Node{
     public:
         int data;
         Node *next;
-        Node(data) {
+        Node(int data) {
             this->data = data;
             this->next = nullptr;
         }
-}
+};
 
 class List {
     Node *head;
@@ -17,13 +17,13 @@ class List {
         List() {
             this->head = nullptr;
         }
-        void prepend(data) {
+        void prepend(int data) {
             Node *node = new Node(data);
             node->next = head;
             head = node;
             return;
         }
-        void append(data) {
+        void append(int data) {
             if (this->head == nullptr) {
                 this->prepend(data);
                 return;
@@ -46,8 +46,7 @@ class List {
             cout << ptr->data << "\n";
             return;
         }
-
-}
+};
 
 int main() {
     List nums;
