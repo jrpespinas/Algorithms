@@ -19,7 +19,7 @@ class List {
         }
         void prepend(int data) {
             Node *node = new Node(data);
-            node->next = head;
+            node->next = this->head;
             head = node;
             return;
         }
@@ -28,7 +28,7 @@ class List {
                 this->prepend(data);
                 return;
             } else {
-                Node *ptr = head;
+                Node *ptr = this->head;
                 while(ptr->next != nullptr) {
                     ptr = ptr->next;
                 }
@@ -38,12 +38,30 @@ class List {
             }
         }
         void display() {
-            Node *ptr = head;
+            Node *ptr = this->head;
             while (ptr->next != nullptr) {
                 cout << ptr->data << " ";
                 ptr = ptr->next;
             }
             cout << ptr->data << "\n";
+            return;
+        }
+        void popHead() {
+            this->head = this->head->next;           
+            return;
+        }
+        void deleteVal(int data) {
+            if (this->head->data == data) {
+                popHead();
+                return;
+            }
+            Node *ptr = this->head;
+            while(ptr->next != nullptr) {
+                if (ptr->next->data == data) {
+                    ptr->next = ptr->next->next;
+                }
+                ptr = ptr->next;
+            }
             return;
         }
 };
@@ -52,9 +70,10 @@ int main() {
     List nums;
     nums.append(1);
     nums.append(2);
-    /* nums.deleteVal(1); */
+    nums.deleteVal(1);
     /* nums.pop(); */
     /* nums.prepend(0); */
     /* nums.reverse(); */
+    nums.popHead();
     nums.display();
 }
