@@ -37,6 +37,15 @@ class List {
                 return;
             }
         }
+        void display() {
+            Node *ptr = head;
+            while (ptr->next != nullptr) {
+                cout << ptr->data << " ";
+                ptr = ptr->next;
+            }
+            cout << ptr->data << "\n";
+            return;
+        }
 
 }
 
