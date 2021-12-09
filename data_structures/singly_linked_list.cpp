@@ -72,6 +72,23 @@ class List {
             ptr->next = nullptr;
             return;
         }
+        void reverse() {
+            if (this->head->next == nullptr)
+                return;
+            else {
+                Node *prev = nullptr;
+                Node *curr = this->head;
+                Node *next = nullptr;
+
+                while (curr != nullptr) {
+                    next = curr->next;
+                    curr->next = prev;
+                    prev = curr;
+                    curr = next;
+                }
+                this->head = prev;
+            }
+        }
 };
 
 int main() {
@@ -79,11 +96,11 @@ int main() {
     nums.append(1);
     nums.append(2);
     nums.append(3);
+    nums.append(4);
     nums.deleteVal(1);
-    /* nums.pop(); */
-    nums.prepend(0);
-    /* nums.reverse(); */
-    nums.popHead();
     nums.pop();
+    nums.prepend(0);
+    nums.reverse();
+    nums.popHead();
     nums.display();
 }
