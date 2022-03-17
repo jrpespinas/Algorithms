@@ -17,6 +17,26 @@ class List {
         List() {
             this->head = nullptr;
         }
+        void prepend(int data) {
+            Node *node = new Node(data);
+            node->next = this->head;
+            head = node;
+            return;
+        }
+        void append(int data) {
+            if (this->head == nullptr) {
+                this->prepend(data);
+                return;
+            } else {
+                Node *ptr = this->head;
+                while (ptr->next != nullptr) {
+                    ptr = ptr->next;
+                }
+                Node *node = new Node(data);
+                ptr->next = node;
+                return;
+            }
+        }
 }
 
 
