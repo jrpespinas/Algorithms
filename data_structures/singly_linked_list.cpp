@@ -93,11 +93,11 @@ public:
       cout << "Index out of bounds\n";
       return;
     } else {
-      Node *ptr = this->head;
+      Node *ptr = this->head->next;
       for (int i = 1; i != index; i++) {
         ptr = ptr->next;
       }
-      ptr->next->data = data;
+      ptr->data = data;
       return;
     }
   }
@@ -165,14 +165,5 @@ public:
 int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
-
-  List nums;
-  nums.Append(1);
-  nums.Append(2);
-  nums.Append(3);
-  nums.Append(4);
-  nums.InsertAt(4, 5);
-  nums.EditAt(5, 111);
-  nums.Display();
   return 0;
 }
