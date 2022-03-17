@@ -44,6 +44,25 @@ public:
       return;
     }
   }
+  void InsertAt(int index, int data) {
+    if (this->head == nullptr) {
+      this->Prepend(data);
+      return;
+    } else {
+      if (index < this->Length()) {
+        Node *ptr = this->head;
+        int i = 1;
+        while (i < index) {
+          ptr = ptr->next;
+          i++;
+        }
+        Node *node = new Node(data);
+        node->next = ptr->next;
+        ptr->next = node;
+        return;
+      }
+    }
+  }
 
   // READ METHODS
   void Display() {
@@ -127,10 +146,14 @@ int main() {
   cin.tie(0);
 
   List nums;
+  nums.Prepend(0);
   nums.Append(1);
   nums.Append(2);
   nums.Append(3);
-  nums.DeleteVal(2);
+  nums.DeleteVal(1);
+  nums.Pop();
+  nums.Append(4);
+  nums.InsertAt(1, 1);
   nums.Display();
   return 0;
 }
