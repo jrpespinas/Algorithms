@@ -12,9 +12,11 @@ class Node {
 };
 
 class List {
+    int length;
     Node *head;
     public:
         List() {
+            this->length = 0;
             this->head = nullptr;
         }
 
@@ -22,7 +24,8 @@ class List {
         void prepend(int data) {
             Node *node = new Node(data);
             node->next = this->head;
-            head = node;
+            this->head = node;
+            this->length++;
             return;
         }
         void append(int data) {
@@ -36,13 +39,29 @@ class List {
                 }
                 Node *node = new Node(data);
                 ptr->next = node;
+                this->length++;
                 return;
             }
+        }
+
+        // READ METHODS
+        void display() {
+            Node *ptr = this->head;
+            while(ptr->next != nullptr) {
+                cout << ptr->data << " ";
+                ptr = ptr->next;
+            }
+            cout << ptr->data << "\n";
+            return;
+        }
+        int length() {
+           return this->length;
         }
 
         // DELETE METHODS
         void popHead() {
             this->head = this->head->next;
+            this->length--;
             return;
         }
         void deleteVal(int data) {
@@ -57,6 +76,7 @@ class List {
                     }
                     ptr = ptr->next;
                 }
+                this->length--;
                 return;
             }
         }
@@ -66,6 +86,7 @@ class List {
                 ptr = ptr->next;
             }
             ptr->next = nullptr;
+            this->length--;
             return;
         }
 }
@@ -77,15 +98,6 @@ int main() {
     cin.tie(0);
 
     List nums;
-    nums.append(1);
-    nums.append(2);
-    nums.append(3);
-    nums.append(4);
-    nums.deleteVal(1);
     nums.pop();
-    nums.prepend(0);
-    nums.reverse();
-    nums.popHead();
-    nums.display();
     return 0;
 }
