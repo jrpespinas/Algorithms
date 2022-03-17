@@ -48,6 +48,12 @@ public:
   // READ METHODS
   void Display() {
     Node *ptr = this->head;
+
+    if (this->length == 0) {
+      cout << "Linked list is empty\n";
+      return;
+    }
+
     while (ptr->next != nullptr) {
       cout << ptr->data << " ";
       ptr = ptr->next;
@@ -55,7 +61,6 @@ public:
     cout << ptr->data << "\n";
     return;
   }
-  int Length() { return this->length; }
 
   // DELETE METHODS
   void PopHead() {
@@ -70,7 +75,7 @@ public:
     } else {
       Node *ptr = this->head;
       while (ptr->next != nullptr) {
-        if (ptr->next->data != data) {
+        if (ptr->next->data == data) {
           ptr->next = ptr->next->next;
         }
         ptr = ptr->next;
@@ -81,6 +86,12 @@ public:
   }
   void Pop() {
     Node *ptr = this->head;
+
+    if (ptr->next == nullptr) {
+      this->PopHead();
+      return;
+    }
+
     while (ptr->next->next != nullptr) {
       ptr = ptr->next;
     }
@@ -88,6 +99,9 @@ public:
     this->length--;
     return;
   }
+
+  // UTILS
+  int Length() { return this->length; }
 };
 
 int main() {
@@ -97,6 +111,8 @@ int main() {
   List nums;
   nums.Append(1);
   nums.Append(2);
-  nums.Pop();
+  nums.Append(3);
+  nums.DeleteVal(2);
+  nums.Display();
   return 0;
 }
