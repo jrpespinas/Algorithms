@@ -17,6 +17,8 @@ class List {
         List() {
             this->head = nullptr;
         }
+
+        // CREATE METHODS
         void prepend(int data) {
             Node *node = new Node(data);
             node->next = this->head;
@@ -36,6 +38,35 @@ class List {
                 ptr->next = node;
                 return;
             }
+        }
+
+        // DELETE METHODS
+        void popHead() {
+            this->head = this->head->next;
+            return;
+        }
+        void deleteVal(int data) {
+            if (this->head == data) {
+                this->popHead();
+                return;
+            } else {
+                Node *ptr = this->head;
+                while (ptr->next != nullptr) {
+                    if (ptr->next->data != data) {
+                        ptr->next = ptr->next->next;
+                    }
+                    ptr = ptr->next;
+                }
+                return;
+            }
+        }
+        void pop() {
+            Node *ptr = this->head;
+            while(ptr->next->next != nullptr) {
+                ptr = ptr->next;
+            }
+            ptr->next = nullptr;
+            return;
         }
 }
 
