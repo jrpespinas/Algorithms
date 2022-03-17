@@ -11,6 +11,14 @@ class Node {
         }
 };
 
+class List {
+    Node *head;
+    public:
+        List() {
+            this->head = nullptr;
+        }
+}
+
 
 
 int main() {
