@@ -21,7 +21,7 @@ public:
     this->head = nullptr;
   }
 
-  // CREATE METHODS
+  // CREATE
   void Prepend(int data) {
     Node *node = new Node(data);
     node->next = this->head;
@@ -52,7 +52,7 @@ public:
       this->Append(data);
       return;
     } else if (index > this->length || index < 0) {
-      cout << "Index out of bonds\n";
+      cout << "Index out of bounds\n";
       return;
     } else {
       Node *ptr = this->head;
@@ -67,7 +67,7 @@ public:
     }
   }
 
-  // READ METHODS
+  // READ
   void Display() {
     Node *ptr = this->head;
 
@@ -84,7 +84,25 @@ public:
     return;
   }
 
-  // DELETE METHODS
+  // UPDATE
+  void EditAt(int index, int data) {
+    if (this->head == nullptr || index == 0) {
+      this->head->data = data;
+      return;
+    } else if (index == this->length || index > this->length || index < 0) {
+      cout << "Index out of bounds\n";
+      return;
+    } else {
+      Node *ptr = this->head;
+      for (int i = 1; i != index; i++) {
+        ptr = ptr->next;
+      }
+      ptr->next->data = data;
+      return;
+    }
+  }
+
+  // DELETE
   void PopHead() {
     this->head = this->head->next;
     this->length--;
@@ -153,7 +171,8 @@ int main() {
   nums.Append(2);
   nums.Append(3);
   nums.Append(4);
-  nums.InsertAt(5, 5);
+  nums.InsertAt(4, 5);
+  nums.EditAt(5, 111);
   nums.Display();
   return 0;
 }
