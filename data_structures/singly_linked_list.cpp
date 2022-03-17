@@ -102,6 +102,24 @@ public:
 
   // UTILS
   int Length() { return this->length; }
+
+  void Reverse() {
+    if (this->head->next == nullptr) {
+      return;
+    } else {
+      Node *prev = nullptr;
+      Node *curr = this->head;
+      Node *next = nullptr;
+
+      while (curr != nullptr) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+      }
+      this->head = prev;
+    }
+  }
 };
 
 int main() {
