@@ -3,14 +3,14 @@ using namespace std;
 
 void selection_sort(int *arr, int size) {
     for (int i=0; i<size; i++) {
-		int j=i;
-		int minimum = j;
-		while (j < size) {
-			if (arr[j] < arr[minimum]) minimum = j;
-			j++;
-		}
-		swap(arr[i], arr[minimum]);
-	}
+        int j=i;
+        int minimum=j;
+        while (j < size) {
+            if (arr[j] < arr[minimum]) minimum = j;
+            j++;
+        }
+        swap(arr[i], arr[minimum]);
+    }
 }
 
 void display(int *arr, int size) {
